@@ -43,7 +43,7 @@
 						</div>
 					</div>
 
-					<?php for ($i = 1; $i <= 5; ++$i) : ?>
+					<?php for ($i = 1; $i <= 5; ++$i): ?>
 
 						<div class="card card-postagem">
 							<div class="card-body">
