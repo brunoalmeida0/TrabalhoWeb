@@ -1,0 +1,41 @@
+body{
+    background-color: #f0f0f0
+}
+
+.conteudo {
+    margin-top: 20px;
+}
+
+.card-perfil{
+    /* height: 75vh; */
+}
+
+.foto-perfil{
+    margin: auto;
+    margin-top: 10px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.card-fazer-postagem{
+    margin-bottom: 20px;
+}
+
+.card-postagem{
+    margin-bottom: 10px;
+}
+
+.imagem-card{
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+}
+
+.titulo-postagem{
+    display: inline-block;
+}
+
+.card{
+    /* background-color: tomato */
+}
