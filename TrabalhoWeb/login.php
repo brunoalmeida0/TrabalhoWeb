@@ -15,7 +15,8 @@
 		<div class="wrapper fadeInDown">
 			<div id="formContent">
 				<div class="fadeIn first">
-					<img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="Icone" />
+					<img src="https://cdn0.iconfinder.com/data/icons/interface-icons-rounded/110/Login-512.png" height="50px" width="50px" alt="Icone" /> <!--id="icon"-->
+
 				</div>
 				<form>
 					<input type="text" id="login" class="fadeIn second" name="login" placeholder="E-mail">

@@ -1,23 +1,18 @@
-<!doctype html>
-<html lang="pt">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<link rel="stylesheet" href="./css/index.css">
-		<link rel="stylesheet" href="./css/header.css">
+	<?php
+		include_once './fixo/topo.php';
+	?>
 
-		<title>Rede Social</title>
+		<title>Página Inicial</title>
+
 	</head>
 
 	<?php
-	include_once './fixo/conexao_bd.php';
+		include_once './fixo/conexao_bd.php';
 	?>
 
 	<body>
-		
 		<?php
-		include_once './fixo/topo.php';
+			include_once './fixo/navbar.php';
 		?>
 
 		<div class="container conteudo">
