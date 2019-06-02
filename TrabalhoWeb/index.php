@@ -16,19 +16,18 @@ if ($_POST != NULL) {
 	$sql = " SELECT * FROM usuario WHERE login = '$login'";
 	$res = $conexao->query($sql);
 	$registro = $res->fetch_array();
-
-	echo $registro["nome"];
 	if ($registro) {
 		$_SESSION["logado"] = "true";
 		$_SESSION["nome"] = $registro["nome"];
 		$_SESSION["id"] = $registro["id"];
 		$_SESSION["email"] = $registro["email"];
 		$_SESSION["foto"] = $registro["foto"];
+		$_SESSION["detalhes"] = $registro["detalhes"];
 
 		header("Location: feed.php");
 	} else {
 		echo "<script>
-				  alert('Não foi possível realizar o login:)');
+				  alert('Não foi possível realizar o login');
 				  location.href = 'index.php';
 				</script>";
 	}
