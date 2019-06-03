@@ -31,6 +31,9 @@ INSERT INTO `usuario` (`id`, `nome`, `telefone`, `email`, `cod_grupo`, `detalhes
 INSERT INTO `usuario` (`nome`, `telefone`, `email`, `cod_grupo`, `detalhes`, `foto`, `cod_usuario`, `login`, `senha`) VALUES
 ('Solicitação Teste', '99999999999', 'teste4@teste.com', 5, 'testando4', 'http://www.escolhalivre.com/Images/imagem_perfil.jpg', 0, 'solicitacaoteste', '123');
 
+INSERT INTO `usuario` (`nome`, `telefone`, `email`, `cod_grupo`, `detalhes`, `foto`, `cod_usuario`, `login`, `senha`) VALUES
+('Solicitação Teste 2', '99999999999', 'teste4@teste.com', 5, 'testando4', 'http://www.escolhalivre.com/Images/imagem_perfil.jpg', 0, 'solicitacaoteste2', '123');
+
 
 --
 -- insert dados da tabela `grupo`
@@ -59,4 +62,3 @@ DELETE FROM solicitacao_amizade WHERE solicitacao_amizade.id_usuario_solicitado 
 -- insert para inserir comentários
 INSERT INTO comentario (id_postagem_coment, id_usuario_coment, conteudo, data) VALUES
 (33, 3, 'teste', now());
-

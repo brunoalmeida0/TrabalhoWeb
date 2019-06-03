@@ -10,9 +10,14 @@ SELECT * FROM usuario WHERE login = 'usertest' AND senha = 'e10adc3949ba59abbe56
 
 
 -- select para pegar o post dos amigos do usuário já ordenados
-select distinct * from postagem, amizade
-where ((postagem.id_usuario = amizade.id_usuario1 or postagem.id_usuario = amizade.id_usuario2)
-and (amizade.id_usuario1 = 1 or amizade.id_usuario2 = 1))  ORDER BY data desc;
+SELECT DISTINCT postagem.id, postagem.id_usuario, postagem.conteudo, postagem.data FROM postagem, amizade, comentario
+WHERE ((postagem.id_usuario = amizade.id_usuario1 OR postagem.id_usuario = amizade.id_usuario2) 
+AND (amizade.id_usuario1 = 1 OR amizade.id_usuario2 = 1)) ORDER BY data DESC;
+
+select distinct postagem.id, postagem.id_usuario, postagem.conteudo, postagem.data from postagem, amizade
+where (postagem.id_usuario = amizade.id_usuario1 and amizade.id_usuario1 = 1) or (amizade.id_usuario1 = 1);
+
+
 
     
 -- select para identificar o autor do post
@@ -57,6 +62,16 @@ join usuario
 on usuario.id = comentario.id_usuario_coment
 where id_postagem_coment = 33;
 
+
+-- select para verificar se a solicitação de amizade já foi enviada
+select * from solicitacao_amizade
+where id_usuario_solicitante = 1 and id_usuario_solicitado = 3;
+
+-- select para pegar comentários referentes a um usuário
+select * from postagem
+where id_usuario = 1;
+
+
 -- selects gerais
 select * from usuario;
 select * from postagem;
@@ -64,6 +79,5 @@ select * from usuario;
 select * from amizade;
 select * from solicitacao_amizade;
 select * from comentario;
-
 
 

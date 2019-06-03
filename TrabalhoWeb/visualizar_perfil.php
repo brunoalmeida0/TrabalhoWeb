@@ -16,11 +16,18 @@ $grupoUsuario = $registro["cod_grupo"];
 $fotoUsuario = $registro["foto"];
 $detalhes = $registro["detalhes"];
 $saoAmigos = false;
+$existeSolicitacao = false;
 $sqlVerificaAmizade = " SELECT * FROM amizade WHERE (id_usuario1 = $idUsuario AND id_usuario2 = $idUsuarioLogado) OR (id_usuario1 = $idUsuarioLogado AND id_usuario2 = $idUsuario); ";
 $verificaAmizade = $conexao->query($sqlVerificaAmizade);
 $arrayAmizade = $verificaAmizade->fetch_array();
 if ($arrayAmizade != null) {
 	$saoAmigos = true;
+}
+$sqlVerificaSeExisteSolicitacao = "SELECT * FROM solicitacao_amizade WHERE id_usuario_solicitante = $idUsuarioLogado AND id_usuario_solicitado = $idUsuario ";
+$verificaSeExisteSolicitacao = $conexao->query($sqlVerificaSeExisteSolicitacao);
+$arrayVerificaSeExisteSolicitacao = $verificaSeExisteSolicitacao->fetch_array();
+if ($arrayVerificaSeExisteSolicitacao != null) {
+	$existeSolicitacao = true;
 }
 ?>
 
@@ -51,7 +58,15 @@ include_once './fixo/conexao_bd.php';
 				</div>
 				<div class="card-body">
 					<?php
-					if (!$saoAmigos) {
+					if ($existeSolicitacao) {
+						echo "
+						<ul class='list-group list-group-flush'>
+							<a href='./fixo/cancelar_solicitacao.php?idUsuario=$idUsuario'>
+								<li class='list-group-item'>Cancelar Solicitacao</li>
+							</a>
+						</ul>
+						";
+					} else if (!$saoAmigos) {
 						echo "
 					<ul class='list-group list-group-flush'>
 						<a href='./fixo/adicionar_amigo.php?idUsuario=$idUsuario'>
@@ -83,9 +98,7 @@ include_once './fixo/conexao_bd.php';
 			<div class="col-md-9">
 				<?php
 
-				$sql = " SELECT DISTINCT * FROM postagem, amizade
-				WHERE ((postagem.id_usuario = amizade.id_usuario1 OR postagem.id_usuario = amizade.id_usuario2) 
-					AND (amizade.id_usuario1 = $idUsuario OR amizade.id_usuario2 = $idUsuario)) ORDER BY data DESC ";
+				$sql = " SELECT * FROM postagem WHERE id_usuario = $idUsuario ";
 
 				$res = $conexao->query($sql);
 
